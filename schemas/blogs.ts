@@ -1,0 +1,93 @@
+// schemas/portfolioBlog.js
+export default {
+  name: 'blogs',
+  title: 'Blogs',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'dateOfPublication',
+      title: 'Date of Publication',
+      type: 'date',
+      options: {
+        dateFormat: 'MMMM Do, YYYY',
+      },
+    },
+    {
+      name: 'shortDescription',
+      title: 'Short Description',
+      type: 'text',
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'HTML', value: 'html'},
+          {title: 'HTML, CSS, JavaScript', value: 'css'},
+          {title: 'JavaScript', value: 'javascript'},
+          {title: 'React.js', value: 'reactjs'},
+          {title: 'Next.js', value: 'nextjs'},
+          {title: 'Node.js', value: 'nodejs'},
+          {title: 'Express.js', value: 'expressjs'},
+          {title: 'Vue.js', value: 'vuejs'},
+          {title: 'Angular', value: 'angular'},
+          {title: 'Sass', value: 'sass'},
+          {title: 'Bootstrap', value: 'bootstrap'},
+          {title: 'Tailwind CSS', value: 'tailwindcss'},
+          {title: 'Firebase', value: 'firebase'},
+          {title: 'MongoDB', value: 'mongodb'},
+          {title: 'GraphQL', value: 'graphql'},
+          {title: 'TypeScript', value: 'typescript'},
+          {title: 'Webpack', value: 'webpack'},
+          {title: 'Redux', value: 'redux'},
+          {title: 'Flutter', value: 'flutter'},
+          {title: 'React Native', value: 'react-native'},
+          {title: 'Swift', value: 'swift'},
+          {title: 'Kotlin', value: 'kotlin'},
+          {title: 'Android Studio', value: 'android-studio'},
+          {title: 'Xcode', value: 'xcode'},
+          {title: 'Django', value: 'django'},
+          {title: 'Flask', value: 'flask'},
+          {title: 'Ruby on Rails', value: 'ruby-on-rails'},
+        ],
+      },
+    },
+    {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
+    {
+      name: 'keywords',
+      title: 'Keywords',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    },
+    {
+      name: 'externalUrl',
+      title: 'External URL',
+      type: 'url',
+    },
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'dateOfPublication',
+      media: 'image',
+    },
+  },
+}
